@@ -46,6 +46,9 @@ binder_call(update_engine, system_server)
 allow update_engine ota_package_file:file r_file_perms;
 allow update_engine ota_package_file:dir r_dir_perms;
 
+# Read OTA zip file at /data/media/.
+allow update_engine media_rw_data_file:file { read };
+
 # Use Boot Control HAL
 hal_client_domain(update_engine, hal_bootctl)
 
